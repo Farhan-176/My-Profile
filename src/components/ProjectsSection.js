@@ -30,7 +30,7 @@ const staticProjects = [
     title: "Little Lemon Web",
     description: "Restaurant website with online booking and menu showcase.",
     tech: ["React", "CSS", "JavaScript"],
-    demoUrl: "https://littlelemonweb176.netlify.app/",
+    demoUrl: "https://littlelemonweb.vercel.app/",
     repoUrl: "https://github.com/Farhan-176/Littlelemonweb",
   },
   {
