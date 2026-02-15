@@ -10,16 +10,16 @@ export default function HeroSection() {
   // Developer-themed code lines for the right-side screen
   const codeFiles = [
     [
-      "// Build fast, accessible web apps",
+      "// Full Stack Developer | Open Source Enthusiast",
       "import React from 'react';",
-      "import './styles.css';",
-      "const App = () => (<UI performance='high' accessibility='AA' />);",
+      "import { Express } from 'express';",
+      "const App = () => (<UI performance='high' scalable={true} />);",
     ],
     [
-      "// Component-driven development",
-      "export const Button = ({ label }) => ",
-      "  <button className='btn btn-primary'>{label}</button>;",
-      "// Ship clean code you can trust",
+      "// Building scalable web applications",
+      "export const Solution = ({ problem }) => ",
+      "  <Innovation clean='code' maintainable={true} />;",
+      "// Always learning new technologies 🚀",
     ],
   ];
 

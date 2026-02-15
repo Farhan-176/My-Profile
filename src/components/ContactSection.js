@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import "./ContactSection.css";
 
 export default function ContactSection() {
-  const CONTACT_EMAIL = "afridifarhan96@gmail.com";
+  const CONTACT_EMAIL = "afridifarhan92@gmail.com";
   const CONTACT_PHONE = "03491940560";
   const LOCATION = "Pakistan";
   const DISPLAY_PHONE = "+92 349 194 0560"; // formatted for readability

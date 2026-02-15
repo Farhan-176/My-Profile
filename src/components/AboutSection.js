@@ -80,25 +80,27 @@ export default function AboutSection() {
   // Role-specific content
   const roleContent = {
     both: {
-      title: "The Perfect Blend",
+      title: "Full Stack Developer",
       paragraphs: [
-        "A versatile professional dedicated to connecting creative ideas with effective technical solutions. With a background blending storytelling and web development, Farhan combines strategic insight and hands-on experience to craft engaging digital experiences. Through thoughtful content and responsive technology, Farhan aims to deliver value to audiences and drive meaningful results for every project."
+        "I'm a passionate Full Stack Developer who loves building scalable web applications and contributing to open-source projects. I believe in writing clean, maintainable code and constantly learning new technologies to solve real-world problems.",
+        "Currently working on full-stack web applications, I'm always learning and exploring new technologies. I'm open to collaborating on interesting open-source projects and tackling challenging problems that make a real impact.",
+        "With expertise across the entire development stack—from React and Next.js on the frontend to Node.js, Express, and MongoDB on the backend—I deliver end-to-end solutions that are robust, scalable, and user-friendly."
       ]
     },
     social: {
-      title: "Social Media Manager",
+      title: "Backend Development",
       paragraphs: [
-        "I specialize in <span class='highlight'>building authentic brand identities</span> through strategic social media management. My approach combines data-driven insights with creative storytelling to maximize engagement and reach.",
-        "My expertise includes <strong>content strategy</strong>, <strong>community management</strong>, <strong>analytics & reporting</strong>, and <strong>paid social advertising</strong>. I've successfully grown multiple brand accounts from scratch to thousands of engaged followers.",
-        "I create content that doesn't just look good—it performs. From viral campaigns to daily engagement strategies, I know how to make your brand stand out in crowded social feeds and convert followers into customers.",
-        "Platforms I master: <span class='highlight'>Instagram, Facebook, Twitter/X, LinkedIn, TikTok, and YouTube</span>. Each platform gets a tailored strategy that speaks to its unique audience."
+        "I specialize in <span class='highlight'>building robust server-side applications</span> using Node.js and Express. My backend solutions are scalable, secure, and optimized for performance.",
+        "My expertise includes <strong>RESTful APIs</strong>, <strong>database design</strong>, <strong>authentication & authorization</strong>, and <strong>server optimization</strong>. I work with MongoDB and PostgreSQL to create efficient data solutions.",
+        "I focus on creating <span class='highlight'>clean architecture</span> and <span class='highlight'>maintainable code</span> that can scale as your application grows. Security and performance are always top priorities in my backend development.",
+        "From microservices to monolithic applications, I build server solutions that are reliable, fast, and ready for production deployment."
       ]
     },
     frontend: {
-      title: "Frontend Developer",
+      title: "Frontend Development",
       paragraphs: [
         "I build <span class='highlight'>modern, responsive web applications</span> that combine beautiful design with flawless functionality. My code is clean, maintainable, and optimized for performance.",
-        "My tech stack includes <strong>React.js</strong>, <strong>JavaScript (ES6+)</strong>, <strong>HTML5 & CSS3</strong>, <strong>Tailwind CSS</strong>, <strong>Framer Motion</strong>, and <strong>responsive design principles</strong>. I stay updated with the latest web technologies and best practices.",
+        "My tech stack includes <strong>React.js</strong>, <strong>Next.js</strong>, <strong>TypeScript</strong>, <strong>JavaScript (ES6+)</strong>, <strong>HTML5 & CSS3</strong>, and <strong>Tailwind CSS</strong>. I stay updated with the latest web technologies and best practices.",
         "Every project I deliver is <span class='highlight'>mobile-first</span>, <span class='highlight'>accessible</span>, and <span class='highlight'>performance-optimized</span>. I focus on creating seamless user experiences that work perfectly across all devices and browsers.",
         "From single-page applications to complex dashboards, I turn design mockups into production-ready code that exceeds expectations and delights users."
       ]
@@ -128,13 +130,13 @@ export default function AboutSection() {
           transition={{ duration: 0.6, delay: 0.2 }}
         >
           <p>
-            I'm a passionate <span className="highlight">Frontend Developer</span> specializing in building modern, responsive web applications with <strong>React.js</strong> and cutting-edge technologies. I craft seamless user experiences that are <span className="highlight">mobile-first</span>, <span className="highlight">accessible</span>, and <span className="highlight">performance-optimized</span>.
+            I'm a passionate <span className="highlight">Full Stack Developer</span> who loves building scalable web applications and contributing to open-source projects. I believe in writing clean, maintainable code and constantly learning new technologies to solve real-world problems.
           </p>
           <p>
-            My expertise includes <strong>JavaScript (ES6+)</strong>, <strong>HTML5 & CSS3</strong>, <strong>Tailwind CSS</strong>, <strong>Framer Motion</strong>, and responsive design principles. I transform design concepts into clean, maintainable code that works flawlessly across all devices and browsers.
+            My expertise spans the entire development stack—<strong>React.js</strong>, <strong>Next.js</strong>, <strong>TypeScript</strong> on the frontend, and <strong>Node.js</strong>, <strong>Express</strong>, <strong>MongoDB</strong> on the backend. I stay updated with the latest web technologies and best practices to deliver cutting-edge solutions.
           </p>
           <p>
-            From single-page applications to complex interactive interfaces, I focus on delivering high-quality solutions that exceed expectations and create lasting impressions.
+            Currently working on full-stack web applications, I'm always exploring new technologies and open to collaborating on interesting open-source projects. Let's build something amazing together!
           </p>
         </motion.div>
       </div>
@@ -166,7 +168,7 @@ export default function AboutSection() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: 0.1 }}
               >
-                I'm a passionate <span className="highlight">Frontend Developer</span> specializing in building modern, responsive web applications with <strong>React.js</strong> and cutting-edge technologies. I craft seamless user experiences that are <span className="highlight">mobile-first</span>, <span className="highlight">accessible</span>, and <span className="highlight">performance-optimized</span>.
+                I'm a passionate <span className="highlight">Full Stack Developer</span> who loves building scalable web applications and contributing to open-source projects. I believe in writing clean, maintainable code and constantly learning new technologies to solve real-world problems.
               </motion.p>
               <motion.p
                 initial={{ opacity: 0, y: 20 }}
@@ -174,7 +176,7 @@ export default function AboutSection() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: 0.2 }}
               >
-                My expertise includes <strong>JavaScript (ES6+)</strong>, <strong>HTML5 & CSS3</strong>, <strong>Tailwind CSS</strong>, <strong>Framer Motion</strong>, and responsive design principles. I transform design concepts into clean, maintainable code that works flawlessly across all devices and browsers.
+                My expertise spans the entire development stack—<strong>React.js</strong>, <strong>Next.js</strong>, <strong>TypeScript</strong> on the frontend, and <strong>Node.js</strong>, <strong>Express</strong>, <strong>MongoDB</strong> on the backend. I stay updated with the latest web technologies and best practices to deliver cutting-edge solutions.
               </motion.p>
               <motion.p
                 initial={{ opacity: 0, y: 20 }}
@@ -182,7 +184,7 @@ export default function AboutSection() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: 0.3 }}
               >
-                From single-page applications to complex interactive interfaces, I focus on delivering high-quality solutions that exceed expectations and create lasting impressions.
+                Currently working on full-stack web applications, I'm always exploring new technologies and open to collaborating on interesting open-source projects. Let's build something amazing together!
               </motion.p>
             </div>
           </motion.div>

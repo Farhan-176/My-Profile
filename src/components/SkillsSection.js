@@ -14,26 +14,34 @@ export default function SkillsSection() {
 
   const skillsData = {
     frontend: [
-      { name: "React.js", level: 80, icon: "⚛️" },
-      { name: "JavaScript (ES6+)", level: 85, icon: "🟨" },
+      { name: "React.js", level: 85, icon: "⚛️" },
+      { name: "Next.js", level: 75, icon: "▲" },
+      { name: "JavaScript (ES6+)", level: 90, icon: "🟨" },
+      { name: "TypeScript", level: 80, icon: "🔷" },
       { name: "HTML5 & CSS3", level: 90, icon: "🎨" },
-      { name: "Tailwind CSS", level: 70, icon: "💨" },
-      { name: "Framer Motion", level: 45, icon: "🎬" },
+      { name: "Tailwind CSS", level: 85, icon: "💨" },
       { name: "Responsive Design", level: 90, icon: "📱" }
     ],
-    tools: [
-      { name: "Git & GitHub", level: 80, icon: "🐙" },
-      { name: "VS Code", level: 90, icon: "💻" },
-      { name: "Figma", level: 45, icon: "🎨" },
-      { name: "Chrome DevTools", level: 57, icon: "🔧" },
-      { name: "NPM/Yarn", level: 75, icon: "📦" }
+    backend: [
+      { name: "Node.js", level: 85, icon: "🟢" },
+      { name: "Express.js", level: 80, icon: "🚂" },
+      { name: "MongoDB", level: 75, icon: "🍃" },
+      { name: "RESTful APIs", level: 85, icon: "🔌" },
+      { name: "PostgreSQL", level: 70, icon: "🐘" }
     ],
-    // social category removed for developer-only portfolio
+    tools: [
+      { name: "Git & GitHub", level: 90, icon: "🐙" },
+      { name: "VS Code", level: 90, icon: "💻" },
+      { name: "Docker", level: 65, icon: "🐳" },
+      { name: "Vercel/Netlify", level: 85, icon: "🚀" },
+      { name: "NPM/Yarn", level: 85, icon: "📦" }
+    ]
   };
 
   const categories = [
     { id: "all", label: "All Skills", icon: "🎯" },
     { id: "frontend", label: "Frontend", icon: "💻" },
+    { id: "backend", label: "Backend", icon: "⚙️" },
     { id: "tools", label: "Tools", icon: "🛠️" }
   ];
 

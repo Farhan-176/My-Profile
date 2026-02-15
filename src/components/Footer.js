@@ -1,21 +1,32 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
+import { motion } from "framer-motion";
 import "./Footer.css";
 
 export default function Footer() {
-  const [isMobile, setIsMobile] = useState(window.innerWidth < 900);
-
-  useEffect(() => {
-    const handleResize = () => setIsMobile(window.innerWidth < 900);
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
-
   return (
-    <footer className={`site-footer ${isMobile ? "mobile" : ""}`}>
-      <div className="footer-inner">
-        <div className="footer-left">
-          <div className="brand">Farhan Afridi</div>
-          <div className="footer-copy">© {new Date().getFullYear()} Farhan Afridi. All rights reserved.</div>
+    <footer className="footer-master">
+      <div className="footer-container-master">
+        <div className="footer-top-master">
+          <motion.div
+            className="footer-logo-master"
+            whileHover={{ scale: 1.05 }}
+          >
+            ◈ <span>Farhan</span>
+          </motion.div>
+          <div className="footer-tagline-master">
+            Architecting elite digital experiences with precision and passion.
+          </div>
+        </div>
+
+        <div className="footer-divider-master" />
+
+        <div className="footer-bottom-master">
+          <div className="footer-copy-master">
+            © {new Date().getFullYear()} Farhan Afridi. Curating Excellence.
+          </div>
+          <div className="footer-credits-master">
+            Built with <span>Vision</span> & <span>Code</span>
+          </div>
         </div>
       </div>
     </footer>

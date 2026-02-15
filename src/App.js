@@ -7,15 +7,17 @@ import ProjectsSection from "./components/ProjectsSection.js";
 import ContactSection from "./components/ContactSection.js";
 import Footer from "./components/Footer.js";
 import BackToHomeButton from "./components/BackToHomeButton.js";
-import ParticleBackground from './components/ParticleBackground'; // NEW IMPORT
+import ParticleBackground from './components/ParticleBackground';
+import CustomCursor from "./components/CustomCursor";
 
 function App() {
   return (
     <>
-      <ParticleBackground /> {/* SINGLE FIXED BACKGROUND */}
+      <CustomCursor />
+      <ParticleBackground />
       <Header />
       <HeroSection />
-      <AboutSection/>
+      <AboutSection />
       <SkillsSection />
       <ProjectsSection />
       <ContactSection />
