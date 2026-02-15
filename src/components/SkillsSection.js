@@ -1,5 +1,5 @@
-import React, { useRef } from "react";
-import { motion, useMotionTemplate, useMotionValue, useSpring, useTransform } from "framer-motion";
+import React from "react";
+import { motion, useMotionTemplate, useMotionValue } from "framer-motion";
 import { useKineticMomentum } from "../hooks/useKineticMomentum";
 import "./SkillsSection.css";
 
@@ -58,12 +58,12 @@ const SkillTile = ({ skill, index }) => {
 
 export default function SkillsSection() {
   const skills = [
-    { name: "React Ecosystem", level: 95, icon: "⚛️", desc: "Crafting performant, scalable frontends with Next.js and Framer Motion." },
-    { name: "Backend Architecture", level: 90, icon: "🏛️", desc: "Designing robust server-side logic and scalable databases." },
-    { name: "TypeScript", level: 88, icon: "🔷", desc: "Ensuring type-safety and architectural integrity across the stack." },
-    { name: "System Design", level: 85, icon: "🟢", desc: "Optimizing distributed systems and cloud-native architectures." },
-    { name: "UI/UX Mastery", level: 92, icon: "🎨", desc: "Fusing aesthetic precision with functional excellence." },
-    { name: "Elite Performance", level: 85, icon: "🚀", desc: "Wringing every millisecond of speed from digital products." }
+    { name: "React Ecosystem", level: 95, icon: "⚛️", desc: "Expert with React, Next.js, Redux, and Framer Motion for high-performance frontends." },
+    { name: "Backend Architecture", level: 90, icon: "🏛️", desc: "Node.js, Express, MongoDB, PostgreSQL - building scalable server-side systems." },
+    { name: "TypeScript", level: 88, icon: "🔷", desc: "Type-safe code with strong architectural patterns and SOLID principles." },
+    { name: "Full Stack Integration", level: 92, icon: "🔗", desc: "RESTful APIs, GraphQL, microservices, and cloud-native architectures." },
+    { name: "Performance Optimization", level: 90, icon: "⚡", desc: "Lazy loading, code splitting, database optimization, and CDN mastery." },
+    { name: "Responsive Design", level: 92, icon: "📱", desc: "Accessibility-first approach with beautiful, intuitive UX across all devices." }
   ];
 
   return (

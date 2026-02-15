@@ -1,6 +1,23 @@
-import React, { useEffect, useState, useRef } from "react";
+import React, { useEffect, useState } from "react";
 import { motion, AnimatePresence, useMotionValue, useSpring, useTransform } from "framer-motion";
 import "./HeroSection.css";
+
+const codeFiles = [
+  [
+    "// Farhan - Full Stack Developer",
+    "import { React, Node } from 'arsenal';",
+    "const buildSolutions = () => {",
+    "  return { scalable: true, fast: true };",
+    "};",
+  ],
+  [
+    "// 18+ Production Projects",
+    "export const expertise = {",
+    "  frontend: 'React + Next.js',",
+    "  backend: 'Node.js + Express'",
+    "};"
+  ],
+];
 
 export default function HeroSection() {
   const [typedCode, setTypedCode] = useState([]);
@@ -12,22 +29,6 @@ export default function HeroSection() {
 
   const rotateX = useSpring(useTransform(mouseY, [-400, 400], [10, -10]), { stiffness: 100, damping: 30 });
   const rotateY = useSpring(useTransform(mouseX, [-400, 400], [-10, 10]), { stiffness: 100, damping: 30 });
-
-  const codeFiles = [
-    [
-      "// Full Stack Developer",
-      "import { Innovation } from 'vision';",
-      "const Future = () => (",
-      "  <Elite scalable={true} />",
-      ");",
-    ],
-    [
-      "// Digital Architecture",
-      "export const Solution = () => {",
-      "  return optimize(Experience);",
-      "};",
-    ],
-  ];
 
   useEffect(() => {
     const symbolTimer = setTimeout(() => setIntroStage("welcome"), 1800);
@@ -113,13 +114,13 @@ export default function HeroSection() {
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 1, ease: "easeOut" }}
           >
-            <div className="hero-badge">Available for Elite Opportunities</div>
+            <div className="hero-badge">🎯 Available for Elite Opportunities</div>
             <h1 className="hero-title-master">
-              Architecting <br />
-              <span>Digital Flux</span>
+              Full Stack <br />
+              <span>Developer</span>
             </h1>
             <p className="hero-desc-master">
-              I curate high-end digital experiences through scalable architecture and experimental UI/UX patterns.
+              Building amazing web experiences with React, Node.js, and modern architecture. Transform ideas into scalable, high-performance digital solutions.
             </p>
             <div className="hero-actions-master">
               <a href="#projects" className="btn-master primary interactive">The Exhibition</a>

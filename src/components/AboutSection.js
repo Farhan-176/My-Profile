@@ -1,5 +1,5 @@
-import React, { useState, useEffect, useRef } from "react";
-import { motion, useScroll, useTransform, useMotionValue, useSpring } from "framer-motion";
+import React, { useRef } from "react";
+import { motion, useScroll, useTransform } from "framer-motion";
 import "./AboutSection.css";
 
 const GlowingText = ({ children, delay = 0 }) => {
@@ -61,11 +61,11 @@ export default function AboutSection() {
   const rotateSlight = useTransform(scrollYProgress, [0, 1], [-5, 5]);
 
   const systemSpecs = [
-    { label: "CODENAME", value: "EXHIBITIONIST_01" },
-    { label: "CORE_TECH", value: "REACT_NEXT_TS" },
-    { label: "ARCHITECTURE", value: "SCALABLE_FLUX" },
-    { label: "PROTOCOL", value: "ELITE_UX_V1" },
-    { label: "STATUS", value: "ACTIVE_EVOLVING" }
+    { label: "EXPERIENCE", value: "18+ Projects" },
+    { label: "SPECIALIZATION", value: "Full Stack Dev" },
+    { label: "EXPERTISE", value: "React, Node.js" },
+    { label: "FOCUS", value: "Performance & UX" },
+    { label: "STATUS", value: "Available Now" }
   ];
 
   return (
@@ -107,12 +107,12 @@ export default function AboutSection() {
             <div className="about-text-master">
               <p>
                 <GlowingText delay={0.1}>
-                  Synthesizing code into immersive digital experiences. I curate high-end solutions through <span>Scalable Architecture</span> and experimental UI/UX patterns.
+                  I'm a creative problem solver who transforms ideas into beautiful, scalable web applications. With a passion for <span>clean code</span> and cutting-edge technologies, I build solutions that don't just work—they delight users.
                 </GlowingText>
               </p>
               <p>
                 <GlowingText delay={0.2}>
-                  Operating at the intersection of <span>Modern Frontend</span> and <span>Cloud Logic</span>. Each project is a dedicated unit of precision engineering.
+                  Starting with raw curiosity, I've mastered <span>full-stack development</span> and built 18+ production-ready projects. Operating at the intersection of <span>modern frontend</span> and <span>cloud logic</span>, with a commitment to performance and open-source contribution.
                 </GlowingText>
               </p>
             </div>

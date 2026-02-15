@@ -5,36 +5,36 @@ import "./ProjectsSection.css";
 
 const staticProjects = [
   {
-    title: "Linkedin Resume Writer",
-    description: "Convert your LinkedIn profile into an ATS-optimized resume.",
-    tech: ["TypeScript", "Next.js"],
-    demoUrl: "https://linkedin-to-ats-resume-writer.vercel.app",
+    title: "LinkedIn to ATS Resume Writer",
+    description: "Convert your LinkedIn profile into an ATS-optimized resume with one click.",
+    tech: ["TypeScript", "Next.js", "React"],
+    demoUrl: "https://github.com/Farhan-176/Linkedin-to-ATS-Resume-Writer",
     repoUrl: "https://github.com/Farhan-176/Linkedin-to-ATS-Resume-Writer",
     image: "https://images.unsplash.com/photo-1586281380349-632531db7ed4?q=80&w=2070&auto=format&fit=crop"
   },
   {
-    title: "Skin Allergy FYP",
-    description: "Final year project - Skin allergy detection and management.",
-    tech: ["React Native", "AI"],
-    demoUrl: "https://github.com/Farhan-176/Skin-Allergy-App-FYP",
-    repoUrl: "https://github.com/Farhan-176/Skin-Allergy-App-FYP",
-    image: "https://images.unsplash.com/photo-1576091160550-2173dba999ef?q=80&w=2070&auto=format&fit=crop"
-  },
-  {
-    title: "GitHub Analytics",
-    description: "GitHub Search App with analytics, activity feed, and insights.",
-    tech: ["React", "GitHub API"],
+    title: "GitHub Search & Analytics",
+    description: "Search GitHub users with analytics, activity feed, and detailed insights dashboard.",
+    tech: ["React", "GitHub API", "JavaScript"],
     demoUrl: "https://github.com/Farhan-176/Github-Search-App",
     repoUrl: "https://github.com/Farhan-176/Github-Search-App",
     image: "https://images.unsplash.com/photo-1618401471353-b98aadebc25b?q=80&w=2070&auto=format&fit=crop"
   },
   {
-    title: "Markdown Live",
-    description: "Lightning-fast Markdown editor with live HTML preview.",
-    tech: ["JavaScript", "HTML"],
-    demoUrl: "https://markdown-editor-with-live-preview.netlify.app/",
+    title: "Markdown Editor with Live Preview",
+    description: "Lightning-fast markdown editor with live HTML preview and ready-made snippets.",
+    tech: ["JavaScript", "HTML", "CSS"],
+    demoUrl: "https://github.com/Farhan-176/Markdown-Editor-with-Live-Preview",
     repoUrl: "https://github.com/Farhan-176/Markdown-Editor-with-Live-Preview",
     image: "https://images.unsplash.com/photo-1542831371-29b0f74f9713?q=80&w=2070&auto=format&fit=crop"
+  },
+  {
+    title: "Little Lemon Web",
+    description: "Fully responsive restaurant website with modern design and interactive features.",
+    tech: ["React", "JavaScript", "CSS"],
+    demoUrl: "https://github.com/Farhan-176/Littlelemonweb",
+    repoUrl: "https://github.com/Farhan-176/Littlelemonweb",
+    image: "https://images.unsplash.com/photo-1504674900271-8178c2a9db88?q=80&w=2070&auto=format&fit=crop"
   },
 ];
 
