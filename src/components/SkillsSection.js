@@ -1,213 +1,83 @@
-import React, { useState, useEffect } from "react";
-import { motion } from "framer-motion";
+import React, { useRef } from "react";
+import { motion, useMotionTemplate, useMotionValue, useSpring, useTransform } from "framer-motion";
+import { useKineticMomentum } from "../hooks/useKineticMomentum";
 import "./SkillsSection.css";
 
-export default function SkillsSection() {
-  const [activeCategory, setActiveCategory] = useState("all");
-  const [isMobile, setIsMobile] = useState(window.innerWidth < 900);
+const SkillTile = ({ skill, index }) => {
+  const mouseX = useMotionValue(0);
+  const mouseY = useMotionValue(0);
+  const { rotateX, rotateY } = useKineticMomentum();
 
-  useEffect(() => {
-    const handleResize = () => setIsMobile(window.innerWidth < 900);
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
+  const background = useMotionTemplate`
+    radial-gradient(
+      400px circle at ${mouseX}px ${mouseY}px,
+      rgba(91, 140, 255, 0.2),
+      transparent 80%
+    )
+  `;
 
-  const skillsData = {
-    frontend: [
-      { name: "React.js", level: 85, icon: "⚛️" },
-      { name: "Next.js", level: 75, icon: "▲" },
-      { name: "JavaScript (ES6+)", level: 90, icon: "🟨" },
-      { name: "TypeScript", level: 80, icon: "🔷" },
-      { name: "HTML5 & CSS3", level: 90, icon: "🎨" },
-      { name: "Tailwind CSS", level: 85, icon: "💨" },
-      { name: "Responsive Design", level: 90, icon: "📱" }
-    ],
-    backend: [
-      { name: "Node.js", level: 85, icon: "🟢" },
-      { name: "Express.js", level: 80, icon: "🚂" },
-      { name: "MongoDB", level: 75, icon: "🍃" },
-      { name: "RESTful APIs", level: 85, icon: "🔌" },
-      { name: "PostgreSQL", level: 70, icon: "🐘" }
-    ],
-    tools: [
-      { name: "Git & GitHub", level: 90, icon: "🐙" },
-      { name: "VS Code", level: 90, icon: "💻" },
-      { name: "Docker", level: 65, icon: "🐳" },
-      { name: "Vercel/Netlify", level: 85, icon: "🚀" },
-      { name: "NPM/Yarn", level: 85, icon: "📦" }
-    ]
-  };
-
-  const categories = [
-    { id: "all", label: "All Skills", icon: "🎯" },
-    { id: "frontend", label: "Frontend", icon: "💻" },
-    { id: "backend", label: "Backend", icon: "⚙️" },
-    { id: "tools", label: "Tools", icon: "🛠️" }
-  ];
-
-  const getFilteredSkills = () => {
-    if (activeCategory === "all") {
-      return Object.values(skillsData).flat();
-    }
-    return skillsData[activeCategory] || [];
-  };
-
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.05
-      }
-    }
-  };
-
-  const cardVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: 0.3, ease: "easeOut" }
-    }
-  };
+  function onMouseMove({ currentTarget, clientX, clientY }) {
+    const { left, top } = currentTarget.getBoundingClientRect();
+    mouseX.set(clientX - left);
+    mouseY.set(clientY - top);
+  }
 
   return (
-    <section className="skills-section" id="skills">
-      {isMobile ? (
-        <div className="mobile-skills-content">
-          <motion.h1
-            className="mobile-skills-title"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-          >
-            My Skills
-          </motion.h1>
-
-          {/* Mobile Category Filter */}
-          <motion.div
-            className="mobile-category-filter"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-          >
-            {categories.map((cat) => (
-              <button
-                key={cat.id}
-                className={`mobile-category-btn ${activeCategory === cat.id ? "active" : ""}`}
-                onClick={() => setActiveCategory(cat.id)}
-              >
-                <span className="cat-icon">{cat.icon}</span>
-                <span className="cat-label">{cat.label}</span>
-              </button>
-            ))}
-          </motion.div>
-
-          {/* Mobile Skills Grid */}
-          <motion.div
-            className="mobile-skills-grid"
-            variants={containerVariants}
-            initial="hidden"
-            animate="visible"
-            key={activeCategory}
-          >
-            {getFilteredSkills().map((skill, index) => (
-              <motion.div
-                key={`${skill.name}-${index}`}
-                className="mobile-skill-card"
-                variants={cardVariants}
-              >
-                <div className="skill-header">
-                  <span className="skill-icon">{skill.icon}</span>
-                  <span className="skill-name">{skill.name}</span>
-                </div>
-                <div className="skill-bar-container">
-                  <motion.div
-                    className="skill-bar-fill"
-                    initial={{ width: 0 }}
-                    whileInView={{ width: `${skill.level}%` }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 1, delay: 0.2 }}
-                  />
-                </div>
-                <span className="skill-percentage">{skill.level}%</span>
-              </motion.div>
-            ))}
-          </motion.div>
-        </div>
-      ) : (
-        <div className="skills-container">
-          {/* Vertical Heading */}
-          <motion.div
-            className="vertical-heading"
-            initial={{ opacity: 0, x: -50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-          >
-            <h2>MY SKILLS</h2>
-          </motion.div>
-
-          <div className="skills-content">
-            {/* Category Tabs */}
+    <motion.div
+      onMouseMove={onMouseMove}
+      style={{ rotateX, rotateY }}
+      className={`bento-tile-master skill-${index} interactive`}
+      initial={{ opacity: 0, scale: 0.9 }}
+      whileInView={{ opacity: 1, scale: 1 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.6, delay: index * 0.1 }}
+    >
+      <motion.div
+        className="tile-glow-master"
+        style={{ background }}
+      />
+      <div className="tile-content-master">
+        <div className="tile-icon-master">{skill.icon}</div>
+        <div className="tile-info-master">
+          <h3 className="tile-title-master">{skill.name}</h3>
+          <p className="tile-desc-master">{skill.desc}</p>
+          <div className="tile-bar-master">
             <motion.div
-              className="category-tabs"
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              className="bar-fill-master"
+              initial={{ width: 0 }}
+              whileInView={{ width: `${skill.level}%` }}
               viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-            >
-              {categories.map((cat) => (
-                <motion.button
-                  key={cat.id}
-                  className={`category-tab ${activeCategory === cat.id ? "active" : ""}`}
-                  onClick={() => setActiveCategory(cat.id)}
-                  whileHover={{ y: -3 }}
-                  whileTap={{ scale: 0.98 }}
-                >
-                  <span className="cat-icon">{cat.icon}</span>
-                  <span className="cat-label">{cat.label}</span>
-                </motion.button>
-              ))}
-            </motion.div>
-
-            {/* Skills Grid */}
-            <motion.div
-              className="skills-grid"
-              variants={containerVariants}
-              initial="hidden"
-              animate="visible"
-              key={activeCategory}
-            >
-              {getFilteredSkills().map((skill, index) => (
-                <motion.div
-                  key={`${skill.name}-${index}`}
-                  className="skill-card"
-                  variants={cardVariants}
-                  whileHover={{ y: -8, boxShadow: "0 10px 40px rgba(91, 140, 255, 0.3)" }}
-                >
-                  <div className="skill-header">
-                    <span className="skill-icon">{skill.icon}</span>
-                    <span className="skill-name">{skill.name}</span>
-                  </div>
-                  <div className="skill-bar-container">
-                    <motion.div
-                      className="skill-bar-fill"
-                      initial={{ width: 0 }}
-                      whileInView={{ width: `${skill.level}%` }}
-                      viewport={{ once: true }}
-                      transition={{ duration: 1, delay: 0.2 }}
-                    />
-                  </div>
-                  <span className="skill-percentage">{skill.level}%</span>
-                </motion.div>
-              ))}
-            </motion.div>
+              transition={{ duration: 1.5, ease: "easeOut" }}
+            />
           </div>
         </div>
-      )}
+      </div>
+    </motion.div>
+  );
+};
+
+export default function SkillsSection() {
+  const skills = [
+    { name: "React Ecosystem", level: 95, icon: "⚛️", desc: "Crafting performant, scalable frontends with Next.js and Framer Motion." },
+    { name: "Backend Architecture", level: 90, icon: "🏛️", desc: "Designing robust server-side logic and scalable databases." },
+    { name: "TypeScript", level: 88, icon: "🔷", desc: "Ensuring type-safety and architectural integrity across the stack." },
+    { name: "System Design", level: 85, icon: "🟢", desc: "Optimizing distributed systems and cloud-native architectures." },
+    { name: "UI/UX Mastery", level: 92, icon: "🎨", desc: "Fusing aesthetic precision with functional excellence." },
+    { name: "Elite Performance", level: 85, icon: "🚀", desc: "Wringing every millisecond of speed from digital products." }
+  ];
+
+  return (
+    <section className="skills-master" id="skills">
+      <div className="skills-header-master">
+        <h2 className="skills-heading-master">The <span>Matrix</span></h2>
+        <p>A cognitive mapping of core technical competencies and digital mastery.</p>
+      </div>
+
+      <div className="bento-grid-master">
+        {skills.map((skill, index) => (
+          <SkillTile key={index} skill={skill} index={index} />
+        ))}
+      </div>
     </section>
   );
 }

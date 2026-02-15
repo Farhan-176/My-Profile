@@ -1,46 +1,54 @@
-import React, { useEffect, useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import React, { useEffect, useState, useRef } from "react";
+import { motion, AnimatePresence, useMotionValue, useSpring, useTransform } from "framer-motion";
 import "./HeroSection.css";
 
 export default function HeroSection() {
   const [typedCode, setTypedCode] = useState([]);
-  const [isMobile, setIsMobile] = useState(window.innerWidth < 900);
   const [introStage, setIntroStage] = useState("symbol");
 
-  // Developer-themed code lines for the right-side screen
+  // Magnetic Motion Values
+  const mouseX = useMotionValue(0);
+  const mouseY = useMotionValue(0);
+
+  const rotateX = useSpring(useTransform(mouseY, [-400, 400], [10, -10]), { stiffness: 100, damping: 30 });
+  const rotateY = useSpring(useTransform(mouseX, [-400, 400], [-10, 10]), { stiffness: 100, damping: 30 });
+
   const codeFiles = [
     [
-      "// Full Stack Developer | Open Source Enthusiast",
-      "import React from 'react';",
-      "import { Express } from 'express';",
-      "const App = () => (<UI performance='high' scalable={true} />);",
+      "// Full Stack Developer",
+      "import { Innovation } from 'vision';",
+      "const Future = () => (",
+      "  <Elite scalable={true} />",
+      ");",
     ],
     [
-      "// Building scalable web applications",
-      "export const Solution = ({ problem }) => ",
-      "  <Innovation clean='code' maintainable={true} />;",
-      "// Always learning new technologies 🚀",
+      "// Digital Architecture",
+      "export const Solution = () => {",
+      "  return optimize(Experience);",
+      "};",
     ],
   ];
 
   useEffect(() => {
-    const symbolTimer = setTimeout(() => setIntroStage("welcome"), 2000);
-    const welcomeTimer = setTimeout(() => setIntroStage("done"), 4000);
+    const symbolTimer = setTimeout(() => setIntroStage("welcome"), 1800);
+    const welcomeTimer = setTimeout(() => setIntroStage("done"), 3500);
     return () => {
       clearTimeout(symbolTimer);
       clearTimeout(welcomeTimer);
     };
   }, []);
 
-  useEffect(() => {
-    const handleResize = () => setIsMobile(window.innerWidth < 900);
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
+  const handleMouseMove = (e) => {
+    const { clientX, clientY } = e;
+    const { innerWidth, innerHeight } = window;
+    mouseX.set(clientX - innerWidth / 2);
+    mouseY.set(clientY - innerHeight / 2);
+  };
 
   useEffect(() => {
     let file = 0, line = 0, ch = 0;
     function type() {
+      if (!codeFiles[file] || !codeFiles[file][line]) return;
       if (ch <= codeFiles[file][line].length) {
         setTypedCode(prev => {
           const n = [...prev];
@@ -48,107 +56,118 @@ export default function HeroSection() {
           return n;
         });
         ch++;
-        // Slow down per-character typing to reduce flicker
-        setTimeout(type, 140);
+        setTimeout(type, 100);
       } else {
         ch = 0; line++;
         if (line >= codeFiles[file].length) {
           line = 0; file = (file + 1) % codeFiles.length;
-          setTypedCode(new Array(codeFiles[file].length).fill(""));
+          setTypedCode([]);
         }
-        // Add longer pause between lines to stabilize the screen
-        setTimeout(type, 700);
+        setTimeout(type, 500);
       }
     }
-    setTypedCode(new Array(codeFiles[0].length).fill(""));
     type();
   }, []);
 
   return (
-    <section id="home" className={`hero ${isMobile ? "mobile-hero" : ""}`}>
+    <section id="home" className="hero-master" onMouseMove={handleMouseMove}>
       <AnimatePresence>
         {introStage === "symbol" && (
           <motion.div
-            className="intro-cinematic"
+            className="intro-overlay-master"
             initial={{ opacity: 1 }}
             animate={{ opacity: 1, scale: 20 }}
             exit={{ opacity: 0, transition: { duration: 0.8 } }}
             transition={{ duration: 1.5, ease: [0.45, 0, 0.55, 1] }}
           >
             <motion.div
-              className="intro-symbol"
-              initial={{ scale: 1, rotateY: 0 }}
-              animate={{ scale: 1.5, rotateY: 720 }}
+              className="intro-symbol-master"
+              animate={{ rotateY: 720 }}
               transition={{ duration: 1.3, ease: "easeInOut" }}
             >
-              {"< />"}
+              ◈
             </motion.div>
           </motion.div>
         )}
 
         {introStage === "welcome" && (
           <motion.div
-            className="welcome-screen"
+            className="intro-overlay-master"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            transition={{ duration: 1 }}
           >
-            <h2 className="welcome-text">Welcome to Farhan's Portfolio</h2>
+            <h2 className="welcome-text-master">Curating Excellence</h2>
           </motion.div>
         )}
       </AnimatePresence>
 
       {introStage === "done" && (
-        <>
-          {isMobile ? (
-            <div className="hero-mobile-content">
-              <h1>Hi, I'm Farhan Afridi</h1>
-              <p>Building responsive, fast web apps with modern React.</p>
-              <div className="hero-mobile-buttons">
-                <a href="#projects" className="cta-btn primary" aria-label="View Projects">View Projects</a>
-                <a href="#contact" className="cta-btn outline" aria-label="Hire Me">Hire Me</a>
-              </div>
-              <div className="mobile-animation">
-                <div className="code-bubble">
-                  {"<Crafting accessible React interfaces with blazing performance />"}
-                </div>
-              </div>
+        <div className="hero-grid-master">
+          {/* Background Decorative Element (Asymmetric) */}
+          <div className="hero-bg-accent" />
+
+          <motion.div
+            className="hero-content-master"
+            initial={{ opacity: 0, x: -100 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 1, ease: "easeOut" }}
+          >
+            <div className="hero-badge">Available for Elite Opportunities</div>
+            <h1 className="hero-title-master">
+              Architecting <br />
+              <span>Digital Flux</span>
+            </h1>
+            <p className="hero-desc-master">
+              I curate high-end digital experiences through scalable architecture and experimental UI/UX patterns.
+            </p>
+            <div className="hero-actions-master">
+              <a href="#projects" className="btn-master primary interactive">The Exhibition</a>
+              <a href="#contact" className="btn-master secondary interactive">Connect</a>
             </div>
-          ) : (
-            <>
-              <div className="hero-left">
-                <h1>Hi, I'm Farhan Afridi</h1>
-                <p className="hero-subtitle">
-                  I craft responsive, performant web apps with modern React.
-                </p>
-                <div className="hero-buttons">
-                  <a href="#projects" className="cta-btn primary" aria-label="View Projects">View Projects</a>
-                  <a href="#contact" className="cta-btn outline" aria-label="Hire Me">Hire Me</a>
+          </motion.div>
+
+          <motion.div
+            className="hero-visual-master"
+            style={{ rotateX, rotateY }}
+            initial={{ opacity: 0, scale: 0.9, x: 100 }}
+            animate={{ opacity: 1, scale: 1, x: 0 }}
+            transition={{ duration: 1.2, ease: "easeOut" }}
+          >
+            <div className="visual-card-master interactive">
+              <div className="card-header-master">
+                <div className="dots-master">
+                  <span /> <span /> <span />
                 </div>
+                <div className="tab-master">flux_engine.tsx</div>
+              </div>
+              <div className="card-body-master">
+                {typedCode.map((line, i) => (
+                  <div key={i} className="code-line-master">{line}</div>
+                ))}
+                <div className="cursor-master" />
               </div>
 
-              <div className="hero-right">
-                <div className="developer-laptop">
-                  <div className="screen">
-                    <div className="screen-toolbar">
-                      <div className="dot red" />
-                      <div className="dot yellow" />
-                      <div className="dot green" />
-                      <div className="tab">app.jsx</div>
-                      <div className="tab muted">styles.css</div>
-                    </div>
-                    {typedCode.map((line, i) => (
-                      <div key={i} className="code-line">{line}</div>
-                    ))}
-                    <div className="cursor"></div>
-                  </div>
-                  <div className="keyboard"></div>
-                </div>
-              </div>
-            </>
-          )}
-        </>
+              {/* Overlapping floating tech cards */}
+              <motion.div
+                className="floating-tech-chip chip-1"
+                animate={{ y: [0, -20, 0] }}
+                transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+              >
+                React
+              </motion.div>
+              <motion.div
+                className="floating-tech-chip chip-2"
+                animate={{ y: [0, 20, 0] }}
+                transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+              >
+                Architecture
+              </motion.div>
+            </div>
+          </motion.div>
+
+          <div className="hero-signature">Farhan Afridi</div>
+        </div>
       )}
     </section>
   );
