@@ -61,11 +61,11 @@ export default function AboutSection() {
   const rotateSlight = useTransform(scrollYProgress, [0, 1], [-5, 5]);
 
   const systemSpecs = [
-    { label: "EXPERIENCE", value: "18+ Projects" },
-    { label: "SPECIALIZATION", value: "Full Stack Dev" },
-    { label: "EXPERTISE", value: "React, Node.js" },
-    { label: "FOCUS", value: "Performance & UX" },
-    { label: "STATUS", value: "Available Now" }
+    { label: "TOTAL PROJECTS", value: "27+ Repositories" },
+    { label: "SPECIALIZATION", value: "Full Stack Developer" },
+    { label: "TECH STACK", value: "MERN, TypeScript, Next.js" },
+    { label: "FOCUS AREAS", value: "Performance & Scalability" },
+    { label: "STATUS", value: "Open for Opportunities" }
   ];
 
   return (

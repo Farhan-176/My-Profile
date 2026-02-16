@@ -6,35 +6,51 @@ import "./ProjectsSection.css";
 const staticProjects = [
   {
     title: "LinkedIn to ATS Resume Writer",
-    description: "Convert your LinkedIn profile into an ATS-optimized resume with one click.",
+    description: "Convert your LinkedIn profile into an ATS-optimized resume with one click. Optimized for applicant tracking systems.",
     tech: ["TypeScript", "Next.js", "React"],
-    demoUrl: "https://github.com/Farhan-176/Linkedin-to-ATS-Resume-Writer",
+    demoUrl: "https://linkedin-to-ats-resume-writer.vercel.app/",
     repoUrl: "https://github.com/Farhan-176/Linkedin-to-ATS-Resume-Writer",
     image: "https://images.unsplash.com/photo-1586281380349-632531db7ed4?q=80&w=2070&auto=format&fit=crop"
   },
   {
+    title: "Hospital Management System",
+    description: "Complete hospital management application with patient records, appointments, and admin dashboard. Currently in progress.",
+    tech: ["JavaScript", "React", "Node.js"],
+    demoUrl: "https://github.com/Farhan-176/Hospital-Management-App",
+    repoUrl: "https://github.com/Farhan-176/Hospital-Management-App",
+    image: "https://images.unsplash.com/photo-1576091160550-2173dba999ef?q=80&w=2070&auto=format&fit=crop"
+  },
+  {
+    title: "Microfinance Loan Application",
+    description: "Full-stack microfinance system with loan applications, guarantor support, admin dashboard, and comprehensive loan calculations.",
+    tech: ["JavaScript", "React", "Node.js", "MongoDB"],
+    demoUrl: "https://microfinance-loan-app.vercel.app/",
+    repoUrl: "https://github.com/Farhan-176/Microfinance-Loan-App",
+    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2070&auto=format&fit=crop"
+  },
+  {
     title: "GitHub Search & Analytics",
-    description: "Search GitHub users with analytics, activity feed, and detailed insights dashboard.",
+    description: "Search GitHub users with comprehensive analytics, activity feed, and detailed insights dashboard. Real GitHub API integration.",
     tech: ["React", "GitHub API", "JavaScript"],
-    demoUrl: "https://github.com/Farhan-176/Github-Search-App",
+    demoUrl: "https://github-search-app-umber.vercel.app/",
     repoUrl: "https://github.com/Farhan-176/Github-Search-App",
     image: "https://images.unsplash.com/photo-1618401471353-b98aadebc25b?q=80&w=2070&auto=format&fit=crop"
   },
   {
-    title: "Markdown Editor with Live Preview",
-    description: "Lightning-fast markdown editor with live HTML preview and ready-made snippets.",
-    tech: ["JavaScript", "HTML", "CSS"],
-    demoUrl: "https://github.com/Farhan-176/Markdown-Editor-with-Live-Preview",
-    repoUrl: "https://github.com/Farhan-176/Markdown-Editor-with-Live-Preview",
-    image: "https://images.unsplash.com/photo-1542831371-29b0f74f9713?q=80&w=2070&auto=format&fit=crop"
+    title: "Memory Card Game",
+    description: "🎮 Interactive memory card game with 3D flip animations and particle effects. Built with vanilla JavaScript and CSS animations.",
+    tech: ["JavaScript", "CSS3", "HTML5 Canvas"],
+    demoUrl: "https://memory-card-game-176.netlify.app/",
+    repoUrl: "https://github.com/Farhan-176/Memory-Card-Game",
+    image: "https://images.unsplash.com/photo-1516975080664-ed2fc6a32937?q=80&w=2070&auto=format&fit=crop"
   },
   {
-    title: "Little Lemon Web",
-    description: "Fully responsive restaurant website with modern design and interactive features.",
-    tech: ["React", "JavaScript", "CSS"],
-    demoUrl: "https://github.com/Farhan-176/Littlelemonweb",
-    repoUrl: "https://github.com/Farhan-176/Littlelemonweb",
-    image: "https://images.unsplash.com/photo-1504674900271-8178c2a9db88?q=80&w=2070&auto=format&fit=crop"
+    title: "Markdown Editor with Live Preview",
+    description: "Lightning-fast markdown editor with live HTML preview, autosave, dark mode, and ready-made templates for quick docs.",
+    tech: ["JavaScript", "HTML5", "CSS3"],
+    demoUrl: "https://markdown-editor-with-live-preview.netlify.app/",
+    repoUrl: "https://github.com/Farhan-176/Markdown-Editor-with-Live-Preview",
+    image: "https://images.unsplash.com/photo-1542831371-29b0f74f9713?q=80&w=2070&auto=format&fit=crop"
   },
 ];
 

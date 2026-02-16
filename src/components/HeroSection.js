@@ -4,17 +4,17 @@ import "./HeroSection.css";
 
 const codeFiles = [
   [
-    "// Farhan - Full Stack Developer",
-    "import { React, Node } from 'arsenal';",
-    "const buildSolutions = () => {",
-    "  return { scalable: true, fast: true };",
+    "// Farhan Afridi - Full Stack Developer",
+    "import { React, Node, TypeScript } from 'arsenal';",
+    "const buildExperience = () => {",
+    "  return { scalable: true, performant: true };",
     "};",
   ],
   [
-    "// 18+ Production Projects",
+    "// 27+ Open Source Projects",
     "export const expertise = {",
-    "  frontend: 'React + Next.js',",
-    "  backend: 'Node.js + Express'",
+    "  frontend: 'React + Next.js + TypeScript',",
+    "  backend: 'Node.js + Express + MongoDB'",
     "};"
   ],
 ];
