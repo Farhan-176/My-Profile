@@ -49,7 +49,7 @@ const MagneticLink = ({ children, href }) => {
 };
 
 export default function ContactSection() {
-  const CONTACT_EMAIL = "afridifarhan92@gmail.com";
+  const CONTACT_EMAIL = "afridifarhan96@gmail.com";
   const CONTACT_PHONE = "03491940560";
   const LOCATION = "Pakistan";
   const DISPLAY_PHONE = "+92 349 194 0560";
