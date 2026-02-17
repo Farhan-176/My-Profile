@@ -21,6 +21,14 @@ const staticProjects = [
     image: "https://images.unsplash.com/photo-1576091160550-2173dba999ef?q=80&w=2070&auto=format&fit=crop"
   },
   {
+    title: "Little Lemon Restaurant",
+    description: "Full-featured restaurant table reservation system with interactive booking form, API integration, and comprehensive accessibility features. Meta Front-End Capstone Project.",
+    tech: ["React", "React Router", "CSS3", "HTML5"],
+    demoUrl: "https://littlelemonweb.vercel.app/",
+    repoUrl: "https://github.com/Farhan-176/Littlelemonweb",
+    image: "https://images.unsplash.com/photo-1517457373614-d3a16e78b385?q=80&w=2070&auto=format&fit=crop"
+  },
+  {
     title: "GitHub Search & Analytics",
     description: "Search GitHub users with comprehensive analytics, activity feed, and detailed insights dashboard. Real GitHub API integration.",
     tech: ["React", "GitHub API", "JavaScript"],
