@@ -61,11 +61,11 @@ export default function AboutSection() {
   const rotateSlight = useTransform(scrollYProgress, [0, 1], [-5, 5]);
 
   const systemSpecs = [
-    { label: "TOTAL PROJECTS", value: "27+ Repositories" },
+    { label: "TOTAL PROJECTS", value: "28+ Public Repositories" },
     { label: "SPECIALIZATION", value: "Full Stack Developer" },
-    { label: "TECH STACK", value: "MERN, TypeScript, Next.js" },
-    { label: "FOCUS AREAS", value: "Performance & Scalability" },
-    { label: "STATUS", value: "Open for Opportunities" }
+    { label: "TECH STACK", value: "JavaScript, React, Node.js, TypeScript, Next.js" },
+    { label: "FOCUS AREAS", value: "Performance Optimization & Scalable Systems" },
+    { label: "ACHIEVEMENTS", value: "172 Contributions • Full-Stack Expert" }
   ];
 
   return (
@@ -112,7 +112,7 @@ export default function AboutSection() {
               </p>
               <p>
                 <GlowingText delay={0.2}>
-                  Starting with raw curiosity, I've mastered <span>full-stack development</span> and built 18+ production-ready projects. Operating at the intersection of <span>modern frontend</span> and <span>cloud logic</span>, with a commitment to performance and open-source contribution.
+                  Starting with raw curiosity, I've mastered <span>full-stack development</span> and built 28+ public repositories with 172 contributions. Operating at the intersection of <span>modern frontend</span> and <span>cloud logic</span>, with a commitment to performance and open-source contribution.
                 </GlowingText>
               </p>
             </div>
