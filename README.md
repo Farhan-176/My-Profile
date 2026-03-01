@@ -1,70 +1,80 @@
-# Getting Started with Create React App
+<div align="center">
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# ◈ Farhan Afridi — Portfolio
 
-## Available Scripts
+### Architecting elite digital experiences with precision and passion.
 
-In the project directory, you can run:
+![React](https://img.shields.io/badge/React-19-61DAFB?style=for-the-badge&logo=react&logoColor=white)
+![Framer Motion](https://img.shields.io/badge/Framer%20Motion-Animation-0055FF?style=for-the-badge&logo=framer&logoColor=white)
+![JavaScript](https://img.shields.io/badge/JavaScript-ES6+-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
+![Status](https://img.shields.io/badge/Status-Active-00C853?style=for-the-badge)
 
-### `npm start`
+[GitHub](https://github.com/Farhan-176) • [LinkedIn](https://www.linkedin.com/in/farhanafrididev) • [Email](mailto:afridifarhan92@gmail.com)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+</div>
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+---
 
-### `npm test`
+## ✨ Overview
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+This is a modern, animated personal portfolio built with React + Framer Motion to showcase:
 
-### `npm run build`
+- A cinematic hero section with dynamic code-style visuals
+- Identity section with profile highlights and technical journey
+- Interactive skill matrix with motion-driven tiles
+- Horizontal projects exhibition with curated work
+- Contact zone with GitHub, LinkedIn, WhatsApp, email, and phone access
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+---
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## 🧠 Profile Snapshot
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+| Metric | Value |
+|---|---|
+| Role | Full Stack Developer |
+| Repositories | 28+ Public Repositories |
+| Focus | Performance Optimization & Scalable Systems |
+| Core Stack | JavaScript, React, Node.js, TypeScript, Next.js |
+| Contributions | 172+ Contributions |
 
-### `npm run eject`
+---
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## 🛠 Tech Stack
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- **Frontend:** React 19, Framer Motion, CSS3
+- **UI Motion:** Framer Motion (parallax, kinetic interactions, animated transitions)
+- **Icons:** Lucide React
+- **Tooling:** Create React App
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+---
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## 🚀 Featured Projects
 
-## Learn More
+1. Quiz App v2.0
+2. Microfinance Loan Application
+3. Hospital Management System
+4. Little Lemon Restaurant
+5. QR Code Generator
+6. GitHub Search & Analytics
+7. LinkedIn to ATS Resume Writer
+8. Memory Card Game
+9. Markdown Editor with Live Preview
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+> Project data source: `src/components/ProjectsSection.js`
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+---
 
-### Code Splitting
+## 📬 Contact
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+- **Name:** Farhan Afridi
+- **Email:** afridifarhan92@gmail.com
+- **Phone:** +92 349 194 0560
+- **Location:** Pakistan
+- **GitHub:** https://github.com/Farhan-176
+- **LinkedIn:** https://www.linkedin.com/in/farhanafrididev
 
-### Analyzing the Bundle Size
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+## 📄 License
 
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Personal portfolio project by Farhan Afridi.
