@@ -11,10 +11,11 @@ const codeFiles = [
     "};",
   ],
   [
-    "// 27+ Open Source Projects",
+    "// 28+ Public Repositories",
     "export const expertise = {",
     "  frontend: 'React + Next.js + TypeScript',",
-    "  backend: 'Node.js + Express + MongoDB'",
+    "  backend: 'Node.js + Express + MongoDB',",
+    "  focus: '🚀 Building Amazing Web Experiences'",
     "};"
   ],
 ];
