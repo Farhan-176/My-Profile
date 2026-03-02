@@ -40,7 +40,7 @@ const staticProjects = [
     title: "QR Code Generator",
     description: "Sleek, modern QR code generator built with pure HTML, CSS, and JavaScript. No frameworks, no dependencies - just clean, efficient code.",
     tech: ["JavaScript", "HTML5", "CSS3"],
-    demoUrl: "https://github.com/Farhan-176/QR-Code-Generator",
+    demoUrl: "https://qr-code-generator-ashy-seven.vercel.app/",
     repoUrl: "https://github.com/Farhan-176/QR-Code-Generator",
     image: "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1600&q=80"
   },
