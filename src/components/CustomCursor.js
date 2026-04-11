@@ -26,6 +26,10 @@ export default function CustomCursor() {
     ([vx, vy]) => 0.03 + Math.min(Math.sqrt(vx * vx + vy * vy) / 10000, 0.05)
   );
 
+  // Extracted from JSX to avoid creating new transforms on every render
+  const ringScaleX = useTransform(stretch, (s) => 1 + s);
+  const ringRotate = useTransform([xVelocity, yVelocity], ([vx, vy]) => Math.atan2(vy, vx) * (180 / Math.PI));
+
   useEffect(() => {
     const moveCursor = (e) => {
       cursorX.set(e.clientX);
@@ -76,8 +80,8 @@ export default function CustomCursor() {
         style={{
           translateX: cursorXSpring,
           translateY: cursorYSpring,
-          scaleX: useTransform(stretch, (s) => 1 + s),
-          rotate: useTransform([xVelocity, yVelocity], ([vx, vy]) => Math.atan2(vy, vx) * (180 / Math.PI))
+          scaleX: ringScaleX,
+          rotate: ringRotate
         }}
         animate={{
           scaleY: isHovered ? 2.5 : 1,

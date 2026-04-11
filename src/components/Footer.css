@@ -1,76 +1,84 @@
 .footer-master {
-  padding: 100px 8% 50px;
-  background-color: var(--bg-dark);
-  border-top: 1px solid var(--glass-border);
+  padding: 3rem 8% 3.5rem;
 }
 
 .footer-container-master {
   max-width: 1400px;
   margin: 0 auto;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(11, 20, 34, 0.12);
 }
 
 .footer-top-master {
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  margin-bottom: 60px;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
 }
 
 .footer-logo-master {
-  font-family: 'Outfit', sans-serif;
-  font-size: 2rem;
-  font-weight: 800;
-  color: var(--primary);
-  display: flex;
+  display: inline-flex;
   align-items: center;
-  gap: 15px;
+  gap: 0.8rem;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.7rem;
+  font-weight: 700;
+  color: var(--text);
 }
 
-.footer-logo-master span {
-  color: var(--text-main);
-  letter-spacing: -0.05em;
+.footer-mark-master {
+  width: 2.4rem;
+  height: 2.4rem;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  background: linear-gradient(135deg, var(--accent), #183f5b);
+  font-size: 0.82rem;
 }
 
 .footer-tagline-master {
-  font-size: 1.1rem;
-  color: var(--text-dim);
-  max-width: 400px;
+  max-width: 480px;
+  color: var(--muted);
+  line-height: 1.7;
   text-align: right;
 }
 
 .footer-divider-master {
   width: 100%;
   height: 1px;
-  background: linear-gradient(90deg, transparent, var(--glass-border), transparent);
-  margin-bottom: 40px;
+  margin-bottom: 1rem;
+  background: linear-gradient(90deg, transparent, rgba(15, 23, 42, 0.12), transparent);
 }
 
 .footer-bottom-master {
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  font-size: 0.85rem;
-  color: var(--text-dim);
+  justify-content: space-between;
+  gap: 1rem;
+  color: var(--muted);
+}
+
+.footer-copy-master,
+.footer-credits-master {
+  font-size: 0.92rem;
 }
 
 .footer-credits-master span {
-  color: var(--primary);
-  font-weight: 600;
+  color: var(--accent);
+  font-weight: 700;
 }
 
 @media (max-width: 768px) {
-  .footer-top-master {
+  .footer-top-master,
+  .footer-bottom-master {
     flex-direction: column;
-    gap: 30px;
     text-align: center;
   }
 
   .footer-tagline-master {
     text-align: center;
-  }
-
-  .footer-bottom-master {
-    flex-direction: column;
-    gap: 20px;
   }
 }

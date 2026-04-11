@@ -1,5 +1,5 @@
-.App {
-  text-align: center;
-  font-family: Arial, sans-serif;
-  margin-top: 100px;
+.app-shell {
+  position: relative;
+  isolation: isolate;
+  min-height: 100vh;
 }

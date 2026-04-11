@@ -6,15 +6,17 @@ export default function Footer() {
   return (
     <footer className="footer-master">
       <div className="footer-container-master">
+        <div className="section-rule" />
         <div className="footer-top-master">
           <motion.div
             className="footer-logo-master"
             whileHover={{ scale: 1.05 }}
           >
-            ◈ <span>Farhan</span>
+            <span className="footer-mark-master">FA</span>
+            <span>Farhan Afridi</span>
           </motion.div>
           <div className="footer-tagline-master">
-            Architecting elite digital experiences with precision and passion.
+            Seasoned front-end portfolio designed to feel clear, modern, and easy to navigate.
           </div>
         </div>
 
@@ -22,10 +24,10 @@ export default function Footer() {
 
         <div className="footer-bottom-master">
           <div className="footer-copy-master">
-            © {new Date().getFullYear()} Farhan Afridi. Curating Excellence.
+            © {new Date().getFullYear()} Farhan Afridi.
           </div>
           <div className="footer-credits-master">
-            Built with <span>Vision</span> & <span>Code</span>
+            Built with <span>React</span> & <span>CSS</span>
           </div>
         </div>
       </div>

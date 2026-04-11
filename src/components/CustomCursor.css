@@ -1,40 +1,39 @@
 .cursor-dot {
-    position: fixed;
-    left: 0;
-    top: 0;
-    width: 6px;
-    height: 6px;
-    background-color: var(--primary);
-    border-radius: 50%;
-    pointer-events: none;
-    z-index: 10001;
-    transform: translate(-50%, -50%);
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 7px;
+  height: 7px;
+  background: linear-gradient(135deg, var(--accent), var(--accent-2));
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 10001;
+  transform: translate(-50%, -50%);
 }
 
 .cursor-ring {
-    position: fixed;
-    left: 0;
-    top: 0;
-    width: 32px;
-    height: 32px;
-    border: 1.5px solid var(--primary);
-    border-radius: 50%;
-    pointer-events: none;
-    z-index: 10000;
-    transform: translate(-50%, -50%);
-    transition: opacity 0.3s ease, transform 0.3s ease;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 36px;
+  height: 36px;
+  border: 1.5px solid rgba(15, 118, 110, 0.75);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 10000;
+  transform: translate(-50%, -50%);
+  transition: opacity 0.3s ease, transform 0.3s ease;
 }
 
 .cursor-ring.hovered {
-    background-color: var(--primary);
-    border-color: transparent;
-    opacity: 0.15;
+  background-color: rgba(15, 118, 110, 0.12);
+  border-color: transparent;
+  opacity: 0.6;
 }
 
 @media (max-width: 900px) {
-
-    .cursor-dot,
-    .cursor-ring {
-        display: none;
-    }
+  .cursor-dot,
+  .cursor-ring {
+    display: none;
+  }
 }

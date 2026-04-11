@@ -1,82 +1,52 @@
-import React, { useRef } from "react";
-import { motion, useScroll, useTransform } from "framer-motion";
+import React from "react";
+import { motion } from "framer-motion";
 import "./AboutSection.css";
 
-const GlowingText = ({ children, delay = 0 }) => {
-  return (
-    <motion.span
-      initial={{ opacity: 0, y: 20, filter: "blur(10px)" }}
-      whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-      viewport={{ once: true, margin: "-100px" }}
-      transition={{ duration: 0.8, delay, ease: [0.16, 1, 0.3, 1] }}
-      className="glowing-text-chunk"
-    >
-      {children}
-    </motion.span>
-  );
-};
-
-const DigitalCore = () => {
-  return (
-    <div className="digital-core-container">
-      <motion.div
-        className="core-ring outer"
-        animate={{ rotate: 360 }}
-        transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-      />
-      <motion.div
-        className="core-ring middle"
-        animate={{ rotate: -360 }}
-        transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
-      />
-      <motion.div
-        className="core-ring inner"
-        animate={{ scale: [1, 1.2, 1] }}
-        transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-      >
-        <div className="core-nucleus" />
-      </motion.div>
-
-      {/* Decorative HUD lines */}
-      {[...Array(4)].map((_, i) => (
-        <motion.div
-          key={i}
-          className={`hud-line line-${i}`}
-          animate={{ opacity: [0.2, 0.6, 0.2] }}
-          transition={{ duration: 2, delay: i * 0.5, repeat: Infinity }}
-        />
-      ))}
-    </div>
-  );
-};
-
 export default function AboutSection() {
-  const containerRef = useRef(null);
-  const { scrollYProgress } = useScroll({
-    target: containerRef,
-    offset: ["start end", "end start"]
-  });
+  const highlights = [
+    {
+      title: "Design systems",
+      text: "I structure interfaces so they scale cleanly across pages, teams, and future features."
+    },
+    {
+      title: "Engineering discipline",
+      text: "I focus on clarity first: strong hierarchy, predictable interactions, and a direct path to action."
+    },
+    {
+      title: "Delivery discipline",
+      text: "I prefer incremental changes, stable code, and systems that are easy to maintain after launch."
+    }
+  ];
 
-  const bgY = useTransform(scrollYProgress, [0, 1], ["0%", "20%"]);
-  const rotateSlight = useTransform(scrollYProgress, [0, 1], [-5, 5]);
-
-  const systemSpecs = [
-    { label: "TOTAL PROJECTS", value: "28+ Public Repositories" },
-    { label: "SPECIALIZATION", value: "Full Stack Developer" },
-    { label: "TECH STACK", value: "JavaScript, React, Node.js, TypeScript, Next.js" },
-    { label: "FOCUS AREAS", value: "Performance Optimization & Scalable Systems" },
-    { label: "ACHIEVEMENTS", value: "172 Contributions • Full-Stack Expert" }
+  const profileFacts = [
+     { label: "Role", value: "Full-stack developer" },
+     { label: "Focus", value: "React, Node.js, databases, APIs" },
+     { label: "Work style", value: "End-to-end solutions, clear architecture, pragmatic" },
+     { label: "Impact", value: "Complete products that scale from backend to UI" }
   ];
 
   return (
-    <section className="about-master" id="about" ref={containerRef}>
-      {/* Background Kinetic Text (Parallax) */}
-      <motion.div className="about-bg-text" style={{ y: bgY, rotate: rotateSlight }}>
-        <span>IDENTITY IDENTITY IDENTITY</span>
-        <span>CURIOSITY PASSION CODE</span>
-      </motion.div>
-
+    <section className="about-master" id="about">
       <div className="about-container-master">
+        <div className="section-rule" />
+        <motion.div
+          className="about-section-header-master"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.7 }}
+        >
+          <p className="section-kicker">About</p>
+          <h2 className="about-heading-master">
+             A full-stack developer who builds complete, scalable products.
+          </h2>
+          <p className="about-lead-master">
+             I build complete solutions across the entire stack: crafting intuitive interfaces, designing robust APIs,
+             and architecting databases that scale. From frontend polish to backend reliability, I bring
+             both design sensibility and engineering discipline to every layer.
+          </p>
+        </motion.div>
+
         <div className="about-grid-master">
           <motion.div
             className="about-visual-master"
@@ -85,51 +55,67 @@ export default function AboutSection() {
             viewport={{ once: true }}
             transition={{ duration: 1, ease: "easeOut" }}
           >
-            <div className="hud-frame interactive">
-              <DigitalCore />
-              <div className="hud-data-tag">SYSTEM_CORE_ENGAGED</div>
+            <div className="about-profile-card interactive">
+              <div className="about-profile-label">Profile snapshot</div>
+              <div className="about-profile-name">Farhan Afridi</div>
+              <p className="about-profile-copy">
+                I build interfaces with a clean visual system, strong responsiveness, and a focus
+                on developer-friendly structure.
+              </p>
+
+              <div className="about-profile-list">
+                {profileFacts.map((fact) => (
+                  <div key={fact.label} className="about-profile-item">
+                    <span>{fact.label}</span>
+                    <strong>{fact.value}</strong>
+                  </div>
+                ))}
+              </div>
             </div>
           </motion.div>
 
           <div className="about-content-master">
             <motion.div
-              className="system-header"
+              className="about-copy-master"
               initial={{ opacity: 0, x: 50 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
             >
-              <div className="system-tag">IDENTITY_PROFILE_SYS</div>
-              <h2 className="about-heading-master">
-                Architecting <span>Digital Flux</span>
-              </h2>
+              <p>
+                I design UI that feels deliberate from the first impression to the final click. The
+                work I enjoy most is the kind that combines visual clarity with implementation that
+                is easy to revisit later.
+              </p>
+              <p>
+                My usual approach is to build the layout system first, tune the spacing and
+                hierarchy second, and then add motion only where it supports the content instead of
+                distracting from it.
+              </p>
             </motion.div>
 
-            <div className="about-text-master">
-              <p>
-                <GlowingText delay={0.1}>
-                  I'm a creative problem solver who transforms ideas into beautiful, scalable web applications. With a passion for <span>clean code</span> and cutting-edge technologies, I build solutions that don't just work—they delight users.
-                </GlowingText>
-              </p>
-              <p>
-                <GlowingText delay={0.2}>
-                  Starting with raw curiosity, I've mastered <span>full-stack development</span> and built 28+ public repositories with 172 contributions. Operating at the intersection of <span>modern frontend</span> and <span>cloud logic</span>, with a commitment to performance and open-source contribution.
-                </GlowingText>
-              </p>
-            </div>
-
-            <div className="system-specs-grid">
-              {systemSpecs.map((spec, i) => (
+            <div className="about-highlights-grid">
+              {highlights.map((item, i) => (
                 <motion.div
                   key={i}
-                  className="spec-item"
+                  className="about-highlight-card"
                   initial={{ opacity: 0, y: 10 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
-                  transition={{ delay: 0.4 + (i * 0.1) }}
+                  transition={{ delay: 0.2 + i * 0.08 }}
                 >
-                  <span className="spec-label">{spec.label}</span>
-                  <span className="spec-value">{spec.value}</span>
+                  <span className="about-highlight-index">0{i + 1}</span>
+                  <h3>{item.title}</h3>
+                  <p>{item.text}</p>
                 </motion.div>
+              ))}
+            </div>
+
+            <div className="system-specs-grid">
+              {profileFacts.map((fact) => (
+                <div key={fact.label} className="spec-item">
+                  <span className="spec-label">{fact.label}</span>
+                  <span className="spec-value">{fact.value}</span>
+                </div>
               ))}
             </div>
           </div>

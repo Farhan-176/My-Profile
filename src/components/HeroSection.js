@@ -1,176 +1,229 @@
 import React, { useEffect, useState } from "react";
-import { motion, AnimatePresence, useMotionValue, useSpring, useTransform } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import "./HeroSection.css";
 
-const codeFiles = [
-  [
-    "// Farhan Afridi - Full Stack Developer",
-    "import { React, Node, TypeScript } from 'arsenal';",
-    "const buildExperience = () => {",
-    "  return { scalable: true, performant: true };",
-    "};",
-  ],
-  [
-    "// 28+ Public Repositories",
-    "export const expertise = {",
-    "  frontend: 'React + Next.js + TypeScript',",
-    "  backend: 'Node.js + Express + MongoDB',",
-    "  focus: '🚀 Building Amazing Web Experiences'",
-    "};"
-  ],
-];
-
 export default function HeroSection() {
-  const [typedCode, setTypedCode] = useState([]);
   const [introStage, setIntroStage] = useState("symbol");
 
-  // Magnetic Motion Values
-  const mouseX = useMotionValue(0);
-  const mouseY = useMotionValue(0);
-
-  const rotateX = useSpring(useTransform(mouseY, [-400, 400], [10, -10]), { stiffness: 100, damping: 30 });
-  const rotateY = useSpring(useTransform(mouseX, [-400, 400], [-10, 10]), { stiffness: 100, damping: 30 });
-
   useEffect(() => {
-    const symbolTimer = setTimeout(() => setIntroStage("welcome"), 1800);
-    const welcomeTimer = setTimeout(() => setIntroStage("done"), 3500);
+    const previousOverflow = document.body.style.overflow;
+    document.body.classList.add("intro-playing");
+    document.body.classList.remove("intro-done");
+    document.body.style.overflow = "hidden";
+
+    const symbolTimer = setTimeout(() => {
+      setIntroStage("welcome");
+    }, 1800);
+
+    const welcomeTimer = setTimeout(() => {
+      setIntroStage("done");
+      document.body.classList.remove("intro-playing");
+      document.body.classList.add("intro-done");
+      document.body.style.overflow = previousOverflow;
+    }, 4300);
+
     return () => {
       clearTimeout(symbolTimer);
       clearTimeout(welcomeTimer);
+      document.body.classList.remove("intro-playing");
+      document.body.style.overflow = previousOverflow;
     };
   }, []);
 
-  const handleMouseMove = (e) => {
-    const { clientX, clientY } = e;
-    const { innerWidth, innerHeight } = window;
-    mouseX.set(clientX - innerWidth / 2);
-    mouseY.set(clientY - innerHeight / 2);
-  };
+  const quickStats = [
+    { value: "28+", label: "public projects" },
+    { value: "172+", label: "GitHub contributions" },
+     { value: "Full-stack", label: "expertise" },
+  ];
 
-  useEffect(() => {
-    let file = 0, line = 0, ch = 0;
-    function type() {
-      if (!codeFiles[file] || !codeFiles[file][line]) return;
-      if (ch <= codeFiles[file][line].length) {
-        setTypedCode(prev => {
-          const n = [...prev];
-          n[line] = codeFiles[file][line].slice(0, ch);
-          return n;
-        });
-        ch++;
-        setTimeout(type, 100);
-      } else {
-        ch = 0; line++;
-        if (line >= codeFiles[file].length) {
-          line = 0; file = (file + 1) % codeFiles.length;
-          setTypedCode([]);
-        }
-        setTimeout(type, 500);
-      }
-    }
-    type();
-  }, []);
+  const focusPoints = [
+     "End-to-end architecture from database to UI",
+    "Responsive layouts that hold up on every screen",
+     "APIs, databases, and accessible frontends",
+  ];
+
+  const stackTags = ["React", "Node.js", "Databases", "APIs", "Full-stack"];
+
+  const craftNotes = [
+    "Design systems over one-off visuals",
+    "Stability over trend-driven motion",
+     "End-to-end solutions built to scale",
+  ];
 
   return (
-    <section id="home" className="hero-master" onMouseMove={handleMouseMove}>
+    <section id="home" className="hero-master">
       <AnimatePresence>
         {introStage === "symbol" && (
           <motion.div
-            className="intro-overlay-master"
+            className="hero-intro-overlay"
             initial={{ opacity: 1 }}
-            animate={{ opacity: 1, scale: 20 }}
-            exit={{ opacity: 0, transition: { duration: 0.8 } }}
-            transition={{ duration: 1.5, ease: [0.45, 0, 0.55, 1] }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0, transition: { duration: 0.9, ease: [0.16, 1, 0.3, 1] } }}
           >
             <motion.div
-              className="intro-symbol-master"
-              animate={{ rotateY: 720 }}
-              transition={{ duration: 1.3, ease: "easeInOut" }}
+              className="hero-intro-symbol-master"
+              initial={{ opacity: 0, scale: 0.72, rotateY: -26 }}
+              animate={{ opacity: 1, scale: 1, rotateY: 0 }}
+              exit={{ opacity: 0, scale: 1.12, transition: { duration: 0.45 } }}
+              transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
             >
-              ◈
+              <motion.div
+                className="hero-intro-symbol-inner"
+                animate={{ rotateY: 720 }}
+                transition={{ duration: 1.35, ease: "easeInOut" }}
+              >
+                ◈
+              </motion.div>
             </motion.div>
           </motion.div>
         )}
 
         {introStage === "welcome" && (
           <motion.div
-            className="intro-overlay-master"
+            className="hero-intro-overlay"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
+            exit={{ opacity: 0, transition: { duration: 0.75, ease: [0.16, 1, 0.3, 1] } }}
           >
-            <h2 className="welcome-text-master">Curating Excellence</h2>
+            <motion.div
+              className="hero-intro-glow"
+              initial={{ scale: 0.98, opacity: 0.35 }}
+              animate={{ scale: 1.08, opacity: 0.55 }}
+              transition={{ duration: 1.6, ease: [0.16, 1, 0.3, 1] }}
+            />
+
+            <motion.div
+              className="hero-intro-content"
+              initial={{ opacity: 0, y: 22 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.65, ease: [0.16, 1, 0.3, 1] }}
+            >
+              <motion.div
+                className="hero-intro-mark"
+                initial={{ rotate: -12, scale: 0.88 }}
+                animate={{ rotate: 0, scale: 1 }}
+                transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+              >
+                FA
+              </motion.div>
+
+              <motion.h2
+                className="hero-intro-title"
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.18 }}
+              >
+                Curating Excellence
+              </motion.h2>
+
+              <motion.p
+                className="hero-intro-subtitle"
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.55, delay: 0.3 }}
+              >
+                Farhan Afridi Portfolio
+              </motion.p>
+
+              <div className="hero-intro-progress-track" aria-hidden="true">
+                <motion.div
+                  className="hero-intro-progress-fill"
+                  initial={{ width: "0%" }}
+                  animate={{ width: "100%" }}
+                  transition={{ duration: 4.05, ease: [0.25, 0.1, 0.25, 1] }}
+                />
+              </div>
+            </motion.div>
           </motion.div>
         )}
       </AnimatePresence>
 
-      {introStage === "done" && (
-        <div className="hero-grid-master">
-          {/* Background Decorative Element (Asymmetric) */}
-          <div className="hero-bg-accent" />
+      <div className="hero-grid-master">
+        <motion.div
+          className="hero-content-master"
+          initial={{ opacity: 0, y: 34, x: -20 }}
+          animate={introStage === "done" ? { opacity: 1, y: 0, x: 0 } : { opacity: 0, y: 34, x: -20 }}
+          transition={{ duration: 0.95, ease: [0.16, 1, 0.3, 1], delay: 0.05 }}
+        >
+          <p className="hero-badge">Seasoned front-end portfolio / Design systems / React</p>
+          <div className="hero-copy-rule-master" />
+          <h1 className="hero-title-master">
+            I build calm, durable front ends that hold up under pressure.
+          </h1>
+          <p className="hero-desc-master">
+            I’m Farhan Afridi, a seasoned front-end developer who builds responsive, accessible,
+            and maintainable interfaces with the discipline of a long-running system. I care
+            about the details that make a product feel fast, trustworthy, and easy to evolve.
+          </p>
+          <div className="hero-actions-master">
+            <a href="#projects" className="btn-master primary interactive">
+              View work
+            </a>
+            <a href="#contact" className="btn-master secondary interactive">
+              Get in touch
+            </a>
+          </div>
 
-          <motion.div
-            className="hero-content-master"
-            initial={{ opacity: 0, x: -100 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 1, ease: "easeOut" }}
-          >
-            <div className="hero-badge">🎯 Available for Elite Opportunities</div>
-            <h1 className="hero-title-master">
-              Full Stack <br />
-              <span>Developer</span>
-            </h1>
-            <p className="hero-desc-master">
-              Building amazing web experiences with React, Node.js, and modern architecture. Transform ideas into scalable, high-performance digital solutions.
-            </p>
-            <div className="hero-actions-master">
-              <a href="#projects" className="btn-master primary interactive">The Exhibition</a>
-              <a href="#contact" className="btn-master secondary interactive">Connect</a>
+          <div className="hero-stats-master">
+            {quickStats.map((stat) => (
+              <div key={stat.label} className="hero-stat-master">
+                <strong>{stat.value}</strong>
+                <span>{stat.label}</span>
+              </div>
+            ))}
+          </div>
+        </motion.div>
+
+        <motion.div
+          className="hero-visual-master"
+          initial={{ opacity: 0, y: 34, x: 20, scale: 0.97 }}
+          animate={introStage === "done" ? { opacity: 1, y: 0, x: 0, scale: 1 } : { opacity: 0, y: 34, x: 20, scale: 0.97 }}
+          transition={{ duration: 1, ease: [0.16, 1, 0.3, 1], delay: 0.12 }}
+        >
+          <div className="visual-card-master interactive">
+            <div className="profile-card-top-master">
+              <div className="profile-mark-master">FA</div>
+              <div>
+                <div className="profile-name-master">Farhan Afridi</div>
+                <div className="profile-role-master">Seasoned front-end developer</div>
+              </div>
             </div>
-          </motion.div>
 
-          <motion.div
-            className="hero-visual-master"
-            style={{ rotateX, rotateY }}
-            initial={{ opacity: 0, scale: 0.9, x: 100 }}
-            animate={{ opacity: 1, scale: 1, x: 0 }}
-            transition={{ duration: 1.2, ease: "easeOut" }}
-          >
-            <div className="visual-card-master interactive">
-              <div className="card-header-master">
-                <div className="dots-master">
-                  <span /> <span /> <span />
+            <div className="profile-pill-master">Available for front-end leadership and product builds</div>
+
+            <div className="stack-chips-master">
+              {stackTags.map((tag) => (
+                <span key={tag}>{tag}</span>
+              ))}
+            </div>
+
+            <div className="craft-band-master">
+              {craftNotes.map((note) => (
+                <span key={note}>{note}</span>
+              ))}
+            </div>
+
+            <div className="focus-list-master">
+              {focusPoints.map((point) => (
+                <div key={point} className="focus-item-master">
+                  <span className="focus-dot-master" />
+                  <span>{point}</span>
                 </div>
-                <div className="tab-master">flux_engine.tsx</div>
-              </div>
-              <div className="card-body-master">
-                {typedCode.map((line, i) => (
-                  <div key={i} className="code-line-master">{line}</div>
-                ))}
-                <div className="cursor-master" />
-              </div>
-
-              {/* Overlapping floating tech cards */}
-              <motion.div
-                className="floating-tech-chip chip-1"
-                animate={{ y: [0, -20, 0] }}
-                transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-              >
-                React
-              </motion.div>
-              <motion.div
-                className="floating-tech-chip chip-2"
-                animate={{ y: [0, 20, 0] }}
-                transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-              >
-                Architecture
-              </motion.div>
+              ))}
             </div>
-          </motion.div>
 
-          <div className="hero-signature">Farhan Afridi</div>
-        </div>
-      )}
+            <div className="visual-footer-master">
+              <span>React</span>
+              <span>TypeScript</span>
+              <span>Design systems</span>
+            </div>
+          </div>
+
+          <div className="hero-card-note-master">
+            Built to feel measured, experienced, and easy to trust on any device.
+          </div>
+        </motion.div>
+      </div>
     </section>
   );
 }

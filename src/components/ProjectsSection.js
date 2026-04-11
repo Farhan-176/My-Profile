@@ -1,6 +1,5 @@
 import React, { useRef } from "react";
-import { motion, useScroll, useTransform } from "framer-motion";
-import { useKineticMomentum } from "../hooks/useKineticMomentum";
+import { motion } from "framer-motion";
 import "./ProjectsSection.css";
 
 const staticProjects = [
@@ -78,18 +77,18 @@ const staticProjects = [
   },
 ];
 
-const ProjectCard = ({ project, index, scrollX }) => {
-  const scale = useTransform(scrollX, [index * 400 - 400, index * 400, index * 400 + 400], [0.8, 1, 0.8]);
-  const opacity = useTransform(scrollX, [index * 400 - 400, index * 400, index * 400 + 400], [0.5, 1, 0.5]);
-  const { rotateX, rotateY } = useKineticMomentum();
+const ProjectCard = ({ project, index }) => {
   const [imgError, setImgError] = React.useState(false);
 
-  const fallbackGradient = `linear-gradient(135deg, rgba(91, 140, 255, 0.3), rgba(168, 85, 247, 0.3))`;
+  const fallbackGradient = "linear-gradient(135deg, rgba(15, 118, 110, 0.22), rgba(194, 65, 12, 0.2))";
 
   return (
     <motion.div 
-      style={{ scale, opacity, rotateX, rotateY }}
-      className="exhibition-card-master"
+      className="project-card-master"
+      initial={{ opacity: 0, y: 24 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.65, delay: index * 0.08 }}
       whileHover="hovered"
     >
       <div className="card-visual-master">
@@ -129,32 +128,23 @@ const ProjectCard = ({ project, index, scrollX }) => {
 
 export default function ProjectsSection() {
   const containerRef = useRef(null);
-  const { scrollXProgress } = useScroll({ container: containerRef });
-  const scrollX = useTransform(scrollXProgress, [0, 1], [0, staticProjects.length * 400]);
 
   return (
     <section className="projects-master" id="projects">
-      {/* Liquid Shader Filter Definition */}
-      <svg style={{ position: "absolute", width: 0, height: 0 }}>
-        <filter id="liquid-distort">
-          <feTurbulence type="fractalNoise" baseFrequency="0.01 0.01" numOctaves="3" result="noise">
-            <animate attributeName="baseFrequency" dur="10s" values="0.01 0.01;0.05 0.05;0.01 0.01" repeatCount="indefinite" />
-          </feTurbulence>
-          <feDisplacementMap in="SourceGraphic" in2="noise" scale="20" />
-        </filter>
-      </svg>
-
       <div className="projects-header-master">
-        <h2 className="projects-heading-master">Experience <span>Exhibition</span></h2>
-        <p>A curated selection of digital architectures and technical experiments.</p>
+        <div className="section-rule" />
+        <p className="section-kicker">Selected work</p>
+        <h2 className="projects-heading-master">Interfaces, tools, and products shipped with care.</h2>
+        <p>
+          A curated selection of projects that show how I think about product UI, interaction,
+          and front-end delivery.
+        </p>
       </div>
 
-      <div className="horizontal-container-master" ref={containerRef}>
-        <div className="exhibition-track-master">
-          {staticProjects.map((p, i) => (
-            <ProjectCard key={i} project={p} index={i} scrollX={scrollX} />
-          ))}
-        </div>
+      <div className="projects-grid-master" ref={containerRef}>
+        {staticProjects.map((project, index) => (
+          <ProjectCard key={project.title} project={project} index={index} />
+        ))}
       </div>
     </section>
   );

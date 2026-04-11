@@ -6,30 +6,47 @@ import { Menu, X } from "lucide-react";
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const [scrollProgress, setScrollProgress] = useState(0);
 
   useEffect(() => {
-    const handleScroll = () => setIsScrolled(window.scrollY > 50);
+    const handleScroll = () => {
+      const scrolled = window.scrollY;
+      const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+      const progress = maxScroll > 0 ? (scrolled / maxScroll) * 100 : 0;
+
+      setIsScrolled(scrolled > 50);
+      setScrollProgress(Math.min(progress, 100));
+    };
+
     window.addEventListener("scroll", handleScroll);
+    handleScroll();
+
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   const navLinks = [
-    { name: "Collection", href: "#projects" },
-    { name: "Identity", href: "#about" },
-    { name: "Matrix", href: "#skills" },
-    { name: "Connect", href: "#contact" },
+    { name: "Home", href: "#home" },
+    { name: "About", href: "#about" },
+    { name: "Skills", href: "#skills" },
+    { name: "Work", href: "#projects" },
+    { name: "Contact", href: "#contact" },
   ];
 
   return (
     <header className={`header-master ${isScrolled ? "scrolled" : ""}`}>
       <div className="header-container-master">
-        <motion.div
+        <motion.a
+          href="#home"
           className="logo-master interactive"
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
         >
-          ◈ <span>Farhan</span>
-        </motion.div>
+          <span className="logo-mark-master">FA</span>
+          <span className="logo-copy-master">
+            <strong>Farhan Afridi</strong>
+            <small>Seasoned front-end portfolio</small>
+          </span>
+        </motion.a>
 
         <nav className="nav-master">
           <ul className="nav-list-master">
@@ -43,9 +60,23 @@ export default function Header() {
           </ul>
         </nav>
 
-        <div className="menu-toggle-master interactive" onClick={() => setMenuOpen(!menuOpen)}>
+        <button
+          type="button"
+          className="menu-toggle-master interactive"
+          onClick={() => setMenuOpen(!menuOpen)}
+          aria-label="Toggle navigation menu"
+          aria-expanded={menuOpen}
+        >
           {menuOpen ? <X size={24} /> : <Menu size={24} />}
-        </div>
+        </button>
+      </div>
+
+      <div className="header-progress-track" aria-hidden="true">
+        <motion.div
+          className="header-progress-fill"
+          animate={{ width: `${scrollProgress}%` }}
+          transition={{ type: "spring", stiffness: 140, damping: 26, mass: 0.5 }}
+        />
       </div>
 
       <AnimatePresence>
@@ -66,6 +97,9 @@ export default function Header() {
                 </li>
               ))}
             </ul>
+            <a href="#contact" className="mobile-cta-master" onClick={() => setMenuOpen(false)}>
+              Let’s talk about your project
+            </a>
           </motion.div>
         )}
       </AnimatePresence>

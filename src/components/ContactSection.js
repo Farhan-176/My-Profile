@@ -54,18 +54,25 @@ export default function ContactSection() {
   const LOCATION = "Pakistan";
   const DISPLAY_PHONE = "+92 349 194 0560";
 
+  const contactCards = [
+    { label: "Email", value: CONTACT_EMAIL, href: `mailto:${CONTACT_EMAIL}`, icon: "✉️" },
+    { label: "Phone", value: DISPLAY_PHONE, href: `tel:${CONTACT_PHONE}`, icon: "📱" },
+    { label: "Location", value: LOCATION, icon: "📍" },
+  ];
+
   return (
     <section className="contact-master" id="contact">
-      <div className="contact-bg-labels">
-        <div className="label-track">
-          <span>CONNECT CONNECT CONNECT CONNECT CONNECT CONNECT</span>
-        </div>
-        <div className="label-track reverse">
-          <span>SYNCHRONIZE SYNCHRONIZE SYNCHRONIZE SYNCHRONIZE</span>
-        </div>
-      </div>
-
       <div className="contact-container-master">
+        <div className="section-rule" />
+        <div className="contact-section-header-master">
+          <p className="section-kicker">Contact</p>
+          <h2 className="contact-heading-master">Let’s build the next version of your front end.</h2>
+          <p className="contact-sub-master">
+            I’m open to product work, portfolio builds, landing pages, and front-end
+            collaborations where strong UI and clean implementation matter.
+          </p>
+        </div>
+
         <div className="contact-grid-master">
           <motion.div
             className="contact-info-master"
@@ -74,10 +81,15 @@ export default function ContactSection() {
             viewport={{ once: true }}
             transition={{ duration: 1 }}
           >
-            <h2 className="contact-heading-master">Initiate <span>Connection</span></h2>
-            <p className="contact-sub-master">
-              Open for elite architectural collaborations, high-performance projects, and digital strategy.
-            </p>
+            <div className="contact-panel-master">
+              <p className="contact-panel-label">Open for</p>
+              <ul className="contact-panel-list">
+                <li>Portfolio redesigns</li>
+                <li>Landing pages</li>
+                <li>React front-end builds</li>
+                <li>UI polish and accessibility passes</li>
+              </ul>
+            </div>
 
             <div className="social-magnetic-container">
               <MagneticLink href="https://github.com/Farhan-176">GitHub</MagneticLink>
@@ -93,11 +105,7 @@ export default function ContactSection() {
             viewport={{ once: true }}
             transition={{ duration: 1 }}
           >
-            {[
-              { label: "Email", value: CONTACT_EMAIL, href: `mailto:${CONTACT_EMAIL}`, icon: "✉️" },
-              { label: "Phone", value: DISPLAY_PHONE, href: `tel:${CONTACT_PHONE}`, icon: "📱" },
-              { label: "Location", value: LOCATION, icon: "📍" }
-            ].map((item, i) => (
+            {contactCards.map((item, i) => (
               <div key={i} className="info-card-master interactive">
                 <div className="info-icon-master">{item.icon}</div>
                 <div className="info-details-master">
@@ -110,6 +118,10 @@ export default function ContactSection() {
                 </div>
               </div>
             ))}
+
+            <div className="contact-note-master">
+              Prefer email? Send the brief and I’ll reply with next steps and availability.
+            </div>
           </motion.div>
         </div>
       </div>
