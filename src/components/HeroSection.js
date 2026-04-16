@@ -148,10 +148,10 @@ export default function HeroSection() {
           <p className="hero-badge">Seasoned front-end portfolio / Design systems / React</p>
           <div className="hero-copy-rule-master" />
           <h1 className="hero-title-master">
-            I build calm, durable front ends that hold up under pressure.
+            I build calm, durable full-stack products that hold up under pressure.
           </h1>
           <p className="hero-desc-master">
-            I’m Farhan Afridi, a seasoned front-end developer who builds responsive, accessible,
+            I’m Farhan Afridi, a seasoned full-stack developer who builds responsive, accessible,
             and maintainable interfaces with the discipline of a long-running system. I care
             about the details that make a product feel fast, trustworthy, and easy to evolve.
           </p>
@@ -185,7 +185,7 @@ export default function HeroSection() {
               <div className="profile-mark-master">FA</div>
               <div>
                 <div className="profile-name-master">Farhan Afridi</div>
-                <div className="profile-role-master">Seasoned front-end developer</div>
+                <div className="profile-role-master">Seasoned full-stack developer</div>
               </div>
             </div>
 
